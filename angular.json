@@ -55,8 +55,8 @@
         "serve": {
           "options": {
             "ssl": true,
-            "sslCert": "DatingApp-Angular/ssl/localhost.pem",
-            "sslKey": "DatingApp-Angular/ssl/localhost-key.pem"
+            "sslCert": "./ssl/localhost.pem",
+            "sslKey": "./ssl/localhost-key.pem"
           },
           "builder": "@angular/build:dev-server",
           "configurations": {
