@@ -44,7 +44,7 @@ testem.log
 ssl/
 *.pem
 *.key
-*.crt
+
 
 # System files
 .DS_Store
