@@ -5,7 +5,16 @@
   "projects": {
     "DatingApp-Angular": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "skipTests": true,
+          "path": "src"
+        },
+        "@schematics/angular:service": {
+          "skipTests": true,
+          "path": "src/Core/service"
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
