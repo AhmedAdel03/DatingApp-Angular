@@ -10,15 +10,14 @@ import { ServiceAccount } from '../../Core/service/service-account';
   styleUrl: './nav-bar.css'
 })
 export class NavBar {
-  private accountService=inject(ServiceAccount)
+  protected accountService=inject(ServiceAccount)
   protected Credits:any ={};
-  protected LoggedIn=signal(true);
-  Login()
+   Login()
   {
    return this.accountService.Login(this.Credits).subscribe({
     next:result=>{
-      this.LoggedIn.set(true);
-    },
+      console.log(result);
+       this.Credits={};},
     error:error=>alert(error.message)
       
 
@@ -26,7 +25,7 @@ export class NavBar {
   }
   logOut()
   {
-    this.LoggedIn.set(false);
+    this.accountService.Logout();
   }
 
 }

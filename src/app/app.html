@@ -1,20 +1,6 @@
 <app-nav-bar/>
-<div class="card  bg-cyan-600 w-1/2 mx-auto p-10 shadow-2xl mt-24"> 
-<h1 class="text-3xl text-red-500 mx-auto"> {{title}}</h1>
-<ul class="list"> 
-@for (member of Members; track member.userid) {
+ <app-home/>
+ 
 
-    <li class="list-row items-center text-blue-500">
-        <img src="user.webp" alt="user avatar" class="size-12 rounded-box">
-        <div> 
-        {{member.name}}--{{member.Email}}
-        </div>
-        
-    </li>
-
-}
-
-</ul>
-
-</div>
+ 
 

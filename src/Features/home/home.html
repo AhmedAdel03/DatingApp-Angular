@@ -1,0 +1,29 @@
+ <div> 
+
+
+ @if(!registerForm())
+ {
+
+ <div
+  class="hero min-h-screen"
+  style="background-image: url(https://images.pexels.com/photos/19835669/pexels-photo-19835669.jpeg);"
+>
+  <div class="hero-overlay"></div>
+  <div class="hero-content text-neutral-content text-center">
+    <div class="max-w-md">
+      <h1 class="mb-5 text-5xl font-bold">Find Your Match</h1>
+      <p class="mb-5">
+        Welcome to SweetMeeter, the modern dating platform designed to help you connect with real people who share your interests,
+         values, and lifestyle. Whether you’re looking for friendship, casual dating,
+          or a serious relationship, our smart matching system brings you closer to the right person.
+      </p>
+      <button class="btn btn-primary"(click)="Setregister()">Register Now</button>
+    </div>
+  </div>
+</div>
+ }
+ @else {
+    <div>
+        <p class="text-3xl text-center text-teal-950"> registerForm</p>
+    </div>
+ } </div>
