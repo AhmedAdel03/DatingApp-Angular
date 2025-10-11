@@ -6,10 +6,11 @@ import { NavBar } from "../Layout/nav-bar/nav-bar";
 import { User } from '../types/types';
 import { ServiceAccount } from '../Core/service/service-account';
 import { Home } from "../Features/home/home";
+import { register } from '../Features/account/register/register';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NavBar, Home],
+  imports: [RouterOutlet, NavBar, Home, ],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
