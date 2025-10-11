@@ -20,19 +20,16 @@
            0 2.625 2.625 0 0 1 5.25 0Z" />
     </svg>
 
-    <!-- Title -->
-    <h3 class="text-3xl font-bold text-white  ">SweetMeet</h3>  
+     <a class="text-3xl font-bold text-white cursor-pointer" routerLink="">SweetMeet </a>
 
-    <!-- Navigation -->
     <nav class="flex text-lg text-amber-300 gap-8 font-medium"> 
-      <a class="hover:text-white transition">Matches</a>
-      <a class="hover:text-white transition">Lists</a>
-      <a class="hover:text-white transition">Messages</a>
+      <a routerLink="/members" routerLinkActive="text-accent" class="hover:text-white transition cursor-pointer">Matches</a>
+      <a routerLink="/lists" routerLinkActive="text-accent" class="hover:text-white transition cursor-pointer" >Lists</a>
+      <a routerLink="/messages" routerLinkActive="text-accent" class="hover:text-white transition cursor-pointer" >Messages</a>
     </nav>
     
-    <!-- Login Form -->
     <div class="flex ml-auto gap-6"> 
-      @if(accountService.CurrentUser() )
+      @if(accountService.CurrentUser())
       {
 <div class="dropdown dropdown-end ">
   <div tabindex="0" role="button" class="flex items-center text-3xl text-yellow-300 cursor-pointer gap-3 "> 

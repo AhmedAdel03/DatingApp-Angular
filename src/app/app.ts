@@ -10,7 +10,7 @@ import { register } from '../Features/account/register/register';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NavBar, Home, ],
+  imports: [RouterOutlet, NavBar ],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -31,14 +31,7 @@ export class App  implements OnInit {
       this.accountservice.CurrentUser.set(user);
     }
 
-    getMembers()
-  {
-  try {
-     return lastValueFrom( this.http.get('https://localhost:5001/api/user'));
-  } catch (error) {
-   return  console.log(error)
-  }
-}
+  
    
   }
   
