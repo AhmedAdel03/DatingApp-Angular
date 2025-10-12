@@ -4,15 +4,23 @@ import { Home } from '../Features/home/home';
 import { MemberDetails } from '../Features/members/member-details/member-details';
 import { Messages } from '../Features/messages/messages';
 import { Lists } from '../Features/lists/lists';
+import { authGuard } from '../Core/guard/auth-guard';
 
 export const routes: Routes = [
     { path: '', component: Home },
-    { path: 'members', component: MemberList },
-    { path: 'members/:id', component: MemberDetails },
-        { path: 'lists', component: Lists },
+    {
+        path: '',
+         runGuardsAndResolvers: "always",
+          canActivate: [authGuard],
+           children: [
+            { path: 'members', component: MemberList },
+            { path: 'members/:id', component: MemberDetails },
+            { path: 'lists', component: Lists },
+            { path: 'messages', component: Messages },
 
-    { path: 'messages', component: Messages },
-        { path: '**', component: Home }
+        ]
+    },
+    { path: '**', component: Home }
 
 
 

@@ -21,15 +21,15 @@ export class App  implements OnInit {
   protected Members:any;
   async ngOnInit() {
      
-   this.setCurrentUser();
+    
     }
-    setCurrentUser()
+   /* setCurrentUser()
     {
       const UserString=localStorage.getItem('user');
       if(!UserString) return;
       const user=JSON.parse(UserString);
       this.accountservice.CurrentUser.set(user);
-    }
+    }*/
 
   
    
