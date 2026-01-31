@@ -1,0 +1,21 @@
+<div class="flex justify-center items-center h-screen">
+  <div class="text-center">
+    <button
+      class="btn bg-black text-white px-5 py-2 rounded hover:bg-gray-800 transition"
+      (click)="geterror()"
+    >
+      Get Error Validation
+    </button>
+
+    @if (Testvalidation.ValidationError().length > 0) {
+      <div class="mt-8 bg-white shadow-lg rounded-2xl p-6 w-[400px] mx-auto">
+        <h2 class="text-xl font-semibold text-red-600 mb-3">Validation Errors</h2>
+        <ul class="space-y-2">
+          @for (msg of Testvalidation.ValidationError(); track $index) {
+            <li class="bg-red-500 text-white p-2 rounded">{{ msg }}</li>
+          }
+        </ul>
+      </div>
+    }
+  </div>
+</div>

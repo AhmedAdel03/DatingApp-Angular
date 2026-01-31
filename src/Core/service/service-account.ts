@@ -12,7 +12,7 @@ export class ServiceAccount {
   LoginUrl="https://localhost:5001/api/Account/login";
   registerUrl="https://localhost:5001/api/Account/Register"
    CurrentUser = signal<User | null>(null);
-Register(RegisterCredits:RegisterCredits)
+ Register(RegisterCredits:RegisterCredits)
 {
  return this.http.post<User>(this.registerUrl,RegisterCredits).pipe(
     tap(user=>{

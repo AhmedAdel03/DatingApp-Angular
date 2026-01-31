@@ -23,13 +23,7 @@ export class App  implements OnInit {
      
     
     }
-   /* setCurrentUser()
-    {
-      const UserString=localStorage.getItem('user');
-      if(!UserString) return;
-      const user=JSON.parse(UserString);
-      this.accountservice.CurrentUser.set(user);
-    }*/
+  
 
   
    

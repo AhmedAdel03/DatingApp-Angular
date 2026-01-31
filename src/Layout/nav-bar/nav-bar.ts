@@ -1,8 +1,9 @@
-import { Component, inject, Inject, signal } from '@angular/core';
+import { Component, inject, Inject, OnInit, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ServiceAccount } from '../../Core/service/service-account';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { themes } from '../Themes';
   
 
 @Component({
@@ -11,10 +12,23 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './nav-bar.html',
   styleUrl: './nav-bar.css'
 })
-export class NavBar {
+export class NavBar implements OnInit {
+ 
   protected accountService=inject(ServiceAccount)
   protected ToasterService=inject(ToastrService)
   protected Credits:any ={};
+  protected selectedthemes=signal<string>(localStorage.getItem('themes' )|| 'light' );
+  protected themes=themes;
+   ngOnInit(): void {
+ document.documentElement.setAttribute('data-theme',this.selectedthemes());
+  }
+  handleSelectedTheme(theme:string)
+  {
+    this.selectedthemes.set(theme);
+    localStorage.setItem('theme',theme);
+    document.documentElement.setAttribute('data-theme',theme)
+
+  }
   private router=inject(Router)
    Login()
   {
@@ -24,7 +38,7 @@ export class NavBar {
         this.ToasterService.success("Login Success","hi",{})
       
       },
-    error:error=>this.ToasterService.error(error.error)
+    error:error=> console.log(error)
       
 
     })

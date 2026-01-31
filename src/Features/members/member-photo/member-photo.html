@@ -1,0 +1,15 @@
+@if(photo$ | async; as Photos )
+{
+    @if (Photos.length>0) 
+    {
+        <div class="grid grid-cols-4 auto-rows-min gap-3 p-5 h-[65hv] overflow-auto">
+            @for (photo of Photos; track photo.photoId)
+            {
+            <img src="{{photo.photoUrl}}" alt="photo of member " class="w-full rounded-lg">
+            
+            }
+        
+        </div>
+    }
+
+}

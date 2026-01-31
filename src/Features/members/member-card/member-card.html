@@ -1,0 +1,23 @@
+@if (member(); as member) {
+  <div
+    [routerLink]="['/members', member.id]"
+    class="relative cursor-pointer overflow-hidden rounded-xl
+           shadow-md transition hover:-translate-y-2 bg-white">
+
+    <!-- Image -->
+    <img
+      [src]="member.imageUrl || '/user.webp'"
+      class="h-80 w-full object-cover"
+    />
+
+    <!-- Text directly on image -->
+    <div class="absolute bottom-3 left-3 text-white">
+      <p class="text-lg font-semibold drop-shadow-lg">
+        {{ member.displayName }},{{member.dateOfBirth | age}}
+      </p>
+      <p class="text-sm drop-shadow-lg">
+        {{ member.city }}
+      </p>
+    </div>
+  </div>
+}

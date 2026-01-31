@@ -1,8 +1,7 @@
  export type User = {
     userId: string;
     email: string;
-
-    name: string;
+     name: string;
     imageURl?: string
     token: string;
 

@@ -1,9 +1,11 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { RegisterCredits } from '../../../types/types';
 import { Home } from '../../home/home';
 import { FormsModule } from '@angular/forms';
 import { ServiceAccount } from '../../../Core/service/service-account';
 import { ToastrService } from 'ngx-toastr';
+import { ErrorTest } from '../../error-test/error-test';
+import { ValidationService } from '../../../Core/service/validation-service';
 
 @Component({
   selector: 'app-register',
@@ -14,8 +16,9 @@ import { ToastrService } from 'ngx-toastr';
 export class register {
   protected toaster=inject(ToastrService)
   protected accountService=inject(ServiceAccount)
- protected RegisterCredits={} as RegisterCredits
-Register()
+  protected RegisterCredits={} as RegisterCredits
+  protected registedValidation=inject(ValidationService)
+ Register()
 {
   this.accountService.Register(this.RegisterCredits).subscribe(
     {
@@ -23,7 +26,7 @@ Register()
        this.toaster.success('Welcome to Sweetmeet','Register Completed success')
       
     },
-    error:error=>this.toaster.warning('Check password It Should have a length from 10-16','Register Credits Wrong')
+    error:error=> this.registedValidation.ValidationError.set(error)
     }
   )
 }
