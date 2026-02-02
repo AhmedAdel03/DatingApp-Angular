@@ -10,6 +10,7 @@ import { NotFound } from '../Shared/not-found/not-found';
 import { MemberProfile } from '../Features/members/member-profile/member-profile';
 import { MemberPhoto } from '../Features/members/member-photo/member-photo';
 import { memberResolver } from '../Features/members/member-resolver';
+import { preventUnsavedChangesGuard } from '../Core/guard/prevent-unsaved-changes-guard';
   
 export const routes: Routes = [
     { path: '', component: Home },
@@ -30,7 +31,7 @@ export const routes: Routes = [
                         path:'',redirectTo:'profile',pathMatch:'full'
                     },
                     {
-                        path:'profile',component:MemberProfile,title:'profile'
+                        path:'profile',component:MemberProfile,title:'profile', canDeactivate:[preventUnsavedChangesGuard]
                     },
                     {
                         path:'Photos',component:MemberPhoto,title:'Photos'
